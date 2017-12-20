@@ -4,9 +4,13 @@ import dao.UserDAO;
 import tables.User;
 
 import javax.ejb.EJB;
+import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
+@Named
+@SessionScoped
 public class UserBean implements Serializable{
     @EJB
     UserDAO userDAO;
