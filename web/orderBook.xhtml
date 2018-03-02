@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Order_Base</title>
+    <link rel="shortcut icon" type="image/png" href="galereya/drel-drawing.png" />
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+
+<h:body styleClass="total">
+
+    <h2 align="center">ЧП "РИО" </h2>
+    <p align="center" >MTS: +38066 496-62-93 LIFE: +38093 239-60-30 KievStar:+38067 11-28-98</p>
+    <h1 align="center">Журнал заказов</h1>
+
+    <p:inputText value="#{orderBean.searchText}" styleClass="search" placeholder="Поиск"/>
+    <p:commandButton value="Поиск" actionListener="#{orderBean.search}" styleClass="buttomFind"/>
+    <br/>
+
+    <p:layout style="background-color: darkgray">
+
+        <p:layoutUnit position="west" resizable="true" maxSize="200" minSize="50" styleClass="col_left" style="background-color: darkgray">
+            <p:button value="Добавить" href="newOrderKard.xhtml" styleClass="buttom"/>
+            <p:button value="Редактировать" href="newOrderKard.xhtml" styleClass="buttom"/>
+            <p:commandButton value="Удалить" actionListener="#{orderBean.deleted}" styleClass="buttom"/>
+            <p:button value="Меню" href="home.xhtml" styleClass="buttom"/>
+            <p:button value="Выход" href="index.xhtml" styleClass="buttom"/>
+        </p:layoutUnit>
+
+
+        <p:layoutUnit position="center">
+
+            <p:dataTable var="order" value="#{dtorderBean.orders}" styleClass="table">
+
+                <p:column headerText="Id">
+                    <h:outputText value="#{order.id}"/>
+                </p:column>
+
+                <p:column headerText="Клиент">
+                    <h:outputText value="#{order.client}"/>
+                </p:column>
+
+                <p:column headerText="Наименование заказа">
+                    <h:outputText value="#{order.orderName}"/>
+                </p:column>
+
+                <p:column headerText="Deadline">
+                    <h:outputText value="#{order.deadLine}"/>
+                </p:column>
+
+                <p:column headerText="Cost Price">
+                    <h:outputText value="#{order.costPrice}"/>
+                </p:column>
+
+                <p:column headerText="Value Order">
+                    <h:outputText value="#{order.valueOrder}"/>
+                </p:column>
+
+                <p:column headerText="Address Order">
+                    <h:outputText value="#{order.adressOrder}"/>
+                </p:column>
+
+                <p:column headerText="Measurement">
+                    <h:outputText value="#{order.measurement}"/>
+                </p:column>
+
+                <p:column headerText="Design Model">
+                    <h:outputText value="#{order.designModel}"/>
+                </p:column>
+
+                <p:column headerText="Teh. Doc">
+                    <h:outputText value="#{order.techDoc}"/>
+                </p:column>
+
+                <p:column headerText="Confirmation">
+                    <h:outputText value="#{order.confirmation}"/>
+                </p:column>
+
+                <p:column headerText="State">
+                    <h:outputText value="#{order.state}"/>
+                </p:column>
+
+                <p:column headerText="Employee">
+                    <h:outputText value="#{order.employee}"/>
+                </p:column>
+
+                <p:column headerText="Actual Date of Delivery">
+                    <h:outputText value="#{order.actualDateOfDelivery}"/>
+                </p:column>
+
+                <p:column headerText="Foto">
+                    <h:outputText value="#{order.foto}"/>
+                </p:column>
+
+                <p:column headerText="Note">
+                    <h:outputText value="#{order.note}"/>
+                </p:column>
+
+            </p:dataTable>
+
+        </p:layoutUnit>
+
+
+        <p:layoutUnit position="east" resizable="true" maxSize="200" minSize="50" styleClass="col_left">
+            <p:button value="Клиенты" href="client.xhtml" styleClass="buttom"/>
+            <p:button value="Сотрудники" href="employee.xhtml" styleClass="buttom"/>
+            <p:button value="Склад" href="stock.xhtml" styleClass="buttom"/>
+            <p:button value="Поставщики" href="vendor.xhtml" styleClass="buttom"/>
+            <p:button value="Галерея" href="galereya.xhtml" styleClass="buttom"/>
+        </p:layoutUnit>
+
+    </p:layout>
+
+</h:body>
+</html>
